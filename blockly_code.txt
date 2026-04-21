@@ -1,0 +1,34 @@
+JSON BLOCK
+{
+  "type": "open_gate_with_speed",
+  "message0": "open gate with speed %1",
+  "args0": [
+    {
+      "type": "field_number",
+      "name": "SPEED",
+      "value": 5,
+      "min": 1,
+      "max": 10
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 230,
+  "tooltip": "Open gate with adjustable speed",
+  "helpUrl": ""
+}
+
+JAVASCRIPT GENERATOR
+Blockly.JavaScript['open_gate_with_speed'] = function(block) {
+  var speed = block.getFieldValue('SPEED');
+
+  var delayTime = 1000 - (speed * 80);
+
+  var code = `
+for (let angle = 0; angle <= 90; angle++) {
+  servo.write(angle);
+  delay(${delayTime});
+}
+`;
+  return code;
+};

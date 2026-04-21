@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Gate Dashboard</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .box {
+      padding: 20px;
+      border: 2px solid #333;
+      display: inline-block;
+      border-radius: 10px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h2>Gate Status</h2>
+    <p id="status">Gate Closed</p>
+
+    <button onclick="openGate()">Simulate Vehicle</button>
+  </div>
+
+  <script>
+    function openGate() {
+      document.getElementById("status").innerText = "Gate Opening...";
+
+      setTimeout(() => {
+        document.getElementById("status").innerText = "Gate Closed";
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
